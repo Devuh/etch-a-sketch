@@ -1,21 +1,25 @@
 function createGrid(size) {
-    let rows = document.querySelectorAll(".row");
-    rows.forEach((row) => {
-        row.remove();
-    });
-
-    for(let i = 0; i < size; i++) {
-        let row = document.createElement("div");
-        row.classList.add("row");
+    if(size <= 100 && size > 0) {
+        let rows = document.querySelectorAll(".row");
+        rows.forEach((row) => {
+            row.remove();
+        });
 
         for(let i = 0; i < size; i++) {
-            let square = document.createElement("div");
-            square.classList.add("square");
-            onHover(square);
-            row.appendChild(square);
+            let row = document.createElement("div");
+            row.classList.add("row");
+
+            for(let i = 0; i < size; i++) {
+                let square = document.createElement("div");
+                square.classList.add("square");
+                onHover(square);
+                row.appendChild(square);
+            }
+            
+            container.appendChild(row);
         }
-        
-        container.appendChild(row);
+    } else {
+        alert("Please enter a number smaller than 100 and greater than 0.")
     }
 }
 
