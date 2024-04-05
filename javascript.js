@@ -25,7 +25,11 @@ function createGrid(size) {
 
 function onHover(square) {
     square.addEventListener("mouseover", (event) => {
+        if(rainbow) {
         event.target.style.backgroundColor = randomRGB();
+        } else {
+            event.target.style.backgroundColor = "black";
+        }
     });
 }
 
@@ -41,13 +45,20 @@ function randomRGB() {
 
 let body = document.querySelector("body");
 let container = document.querySelector("#container");
-let button = document.querySelector("button");
+let newCanvasButton = document.querySelector("#new-canvas-button");
+let rainbowButton = document.querySelector("#rainbow-button");
+
+let rainbow = false;
 
 document.addEventListener("DOMContentLoaded", () => {
     createGrid(16);
 });
 
-button.addEventListener("click", () => {
+newCanvasButton.addEventListener("click", () => {
     let input = prompt("Enter grid size:");
     createGrid(input);
+});
+
+rainbowButton.addEventListener("click", () => {
+    rainbow = !rainbow;
 });
