@@ -25,8 +25,18 @@ function createGrid(size) {
 
 function onHover(square) {
     square.addEventListener("mouseover", (event) => {
-        event.target.classList.add("square-hover");
+        event.target.style.backgroundColor = randomRGB();
     });
+}
+
+function randomRGB() {
+    let max = 255;
+
+    return ("rgb(" +
+        Math.floor(Math.random() * max) + "," +
+        Math.floor(Math.random() * max) + "," +
+        Math.floor(Math.random() * max) + ")"
+    );
 }
 
 let body = document.querySelector("body");
