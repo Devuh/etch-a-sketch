@@ -1,5 +1,5 @@
 function createGrid(size) {
-    let rows = document.querySelectorAll("row");
+    let rows = document.querySelectorAll(".row");
     rows.forEach((row) => {
         row.remove();
     });
@@ -25,6 +25,15 @@ function onHover(square) {
     });
 }
 
+let body = document.querySelector("body");
 let container = document.querySelector("#container");
+let button = document.querySelector("button");
 
-createGrid(16);
+document.addEventListener("DOMContentLoaded", () => {
+    createGrid(16);
+});
+
+button.addEventListener("click", () => {
+    let input = prompt("Enter grid size:");
+    createGrid(input);
+});
